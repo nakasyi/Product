@@ -1,0 +1,262 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
+    color: #ccc;
+    font-size: 1.4rem;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px 0px rgb(136 139 141);
+}
+a {
+    text-decoration: none;
+    color: #ccc;
+}
+li {
+    list-style: none;
+}
+.wrapper {
+    max-width: 1200px;
+    padding: 0 16px;
+    margin: 0 auto;
+}
+ul {
+    padding: 0;
+}
+h2 {
+    text-align: left;
+    color: rgb(141, 136, 136);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+article:hover h2 {
+    color: rgb(71, 70, 70);
+    transition: all .5s;
+}
+h3 {
+    font-size: 1.6rem;
+}
+/* moreの親要素を中央寄せにすることで子要素をインラインブロックの準備ができる */
+.center {
+    text-align: center;
+}
+/* 疑似要素で下線を設定するために、「position: relative;」を設定 */
+.readmore .more {
+    display: inline-block;
+    font-size: 1.4rem;
+    padding-bottom: 1px;
+    color: rgb(133, 133, 133);
+    position: relative;
+}
+/* 
+   「position: absolute;」を設定し、left、bottomで下線の位置を調整
+    widthとheightで線の長さと高さを設定
+    疑似要素で線を表示させるためには、「content: '';」を設定すること
+   「transition: all 200ms ease;」でホバー時の速度などを設定 
+*/
+.readmore .more::after {
+   content: '';
+   position: absolute;
+   height: 1px;
+   width: 100%;
+   left: 0;
+   bottom: 0;
+   background: #333;
+   transition: all 200ms ease;
+}
+/* 
+    ホバー時の下線の設定
+   「opacity: 0;」下線を非表示
+   「transform: translateY(3px);」下に3px移動
+    →下に3px移動しながら下線を非表示にする           ⬇︎この位置がポイント。普通のやり方はこのようになる(article .more:hover::after)
+    親要素にhoverしたら孫要素が動く(article :hover .more::after)
+*/
+article :hover .more::after {
+    opacity: 0;
+    transform: translateY(3px);
+}
+
+/* ***************************************
+header 
+:**************************************** */
+header {
+    margin-bottom: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+header img {
+    box-shadow: none;
+}
+#logo a {
+    padding: 2rem 2rem 2rem 0;
+    display: inline-block;
+    line-height: 1px;
+}
+#navi {
+    background-color: rgba(48, 48, 48, 0.993);
+    align-items: center;
+}
+#navi ul {
+    display: flex;
+}
+#navi ul li {
+    margin-right: 4rem;
+    padding: 1.2rem 1rem 1.2rem 0;
+}
+#navi a {
+    color: #fff;
+}
+/* ****************************************
+PickUp
+++++++++++++++++++++++++++++++++++++++++++ */
+#pickup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15rem;
+    margin-bottom: 5rem;
+}
+#pickup article {
+    width: 32%;
+}
+/* ***************************************
+container - main
+*************************************** */
+#container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+}
+main {
+    width: 66%;
+}
+.title {
+    font-size: 2.4rem;
+    margin: 0;
+}
+.date {
+    display: flex;
+    margin: 0 0 .5rem 0;
+    color: rgb(85, 85, 85);
+    padding: 0;
+}
+.date li {
+    margin-right: 2rem;
+}
+.text {
+    font-size: 1.6rem;
+    letter-spacing: .32rem;
+    color: rgb(85, 85, 85);
+    margin: 1rem 0;
+}
+main article {
+    margin-bottom: 4rem;
+}
+/* *********************************
+container - aside
+*********************************** */
+aside {
+    width: 28%;
+}
+aside img {
+    box-shadow: none;
+}
+.author {
+    margin-bottom: 38px;
+}
+.author img {
+    border-radius: 180px;
+    width: 26%;
+    margin-top: 15px;
+}
+h3,h4 {
+    font-size: 2.8rem;
+    font-weight: lighter;
+    color: rgb(85, 85, 85);
+}
+.ranking {
+    margin-bottom: 38px;
+}
+.ranking img {
+    vertical-align: bottom;
+}
+.text {
+    margin: 0;
+    padding: 10px 0;
+}
+/* *****************************
+container - aiside - author
+******************************* */
+.memory {
+    padding: 0;
+    margin: 0;
+}
+.memory li {
+    padding: 20px 0;
+    border-bottom: solid 1px rgba(48, 48, 48, 0.993);
+}
+.memory a {
+    color: rgb(80, 80, 80);
+}
+.memory a:hover {
+    color: rgb(0, 0, 0);
+    transition: all .5s;   
+}
+/************************************
+footer
+*********************************** */
+footer {
+    background-color: rgb(241, 241, 241);
+    padding: 0 16px;
+}
+.content {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.item {
+    width: 30%;
+    height: auto;
+}
+.item h3 {
+    margin-bottom: 10px;
+}
+#contact {
+    margin-top: 3rem;
+}
+#contact li {
+    padding: 5px 0;
+}
+#contact li a {
+    color: rgb(46, 46, 46);
+}
+/* ***************************
+sp　- break point      1200px
+***:************************** */
+@media screen and (max-width: 767px) {
+    #navi {
+        overflow: scroll;
+    }
+    #container {
+        flex-direction: column;
+    }
+    #container main,aside {
+        width: 100%;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .item {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
